@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import { userActions } from '../_actions';
 
 class HomePage extends React.Component {
@@ -16,7 +15,7 @@ class HomePage extends React.Component {
     render() {
         const { user, users } = this.props;
         return (
-            <div className="col-md-6 col-md-offset-3">
+            <div className="col-12 col-md-offset-3">
                 <h1>Hi {user.firstName}!</h1>
                 <p>You're logged in with React!!</p>
                 <h3>All registered users:</h3>
@@ -38,6 +37,8 @@ class HomePage extends React.Component {
                 }
                 <p>
                     <Link to="/login">Logout</Link>
+                    <Link to="/users"> User List</Link>
+                   
                 </p>
             </div>
         );
@@ -50,7 +51,7 @@ function mapState(state) {
     return { user, users };
 }
 
-const actionCreators = {
+const actionCreators = {  
     getUsers: userActions.getAll,
     deleteUser: userActions.delete
 }

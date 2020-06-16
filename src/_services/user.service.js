@@ -23,7 +23,7 @@ function login(username, password) {
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('user', JSON.stringify(user));
-
+            localStorage.setItem('auth','Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEwLCJpYXQiOjE1OTIyODk0MzcsImV4cCI6MTU5MjI5MTIzN30.7kRQ9KWCIoGlnn_TWhmsTZ8g39Q2DNMOvF0lb9XQ6ZU')
             return user;
         });
 }
@@ -38,7 +38,6 @@ function getAll() {
         method: 'GET',
         headers: authHeader()
     };
-
     return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
 }
 
